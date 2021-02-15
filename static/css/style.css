@@ -2,3 +2,14 @@ body {
     margin: 0;
     font-family: sans-serif;
 }
+
+.board {
+    width: 480px;
+    display: grid;
+    grid-template-columns: repeat(8, 60px);
+}
+
+.cell {
+    height: 60px;
+    text-align: center;
+}

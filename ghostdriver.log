@@ -1,0 +1,31 @@
+[INFO  - 2021-02-15T18:20:01.030Z] GhostDriver - Main - running on port 34787
+[INFO  - 2021-02-15T18:20:01.918Z] Session [6b43d5a0-6fba-11eb-89a9-0d6be8dbcdbe] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2021-02-15T18:20:01.918Z] Session [6b43d5a0-6fba-11eb-89a9-0d6be8dbcdbe] - page.customHeaders:  - {}
+[INFO  - 2021-02-15T18:20:01.918Z] Session [6b43d5a0-6fba-11eb-89a9-0d6be8dbcdbe] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2021-02-15T18:20:01.918Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 6b43d5a0-6fba-11eb-89a9-0d6be8dbcdbe
+[ERROR - 2021-02-15T18:20:02.669Z] Session [6b43d5a0-6fba-11eb-89a9-0d6be8dbcdbe] - page.onError - msg: TypeError: undefined is not a function (evaluating '["en_US","en"].includes(l)')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2021-02-15T18:20:02.669Z] Session [6b43d5a0-6fba-11eb-89a9-0d6be8dbcdbe] - page.onError - stack:
+  ./core/navigation/config/routes.js (https://www.chess.com/bundles/app/js/navigation.client.3301e9ff.js:2)
+  __webpack_require__ (https://www.chess.com/bundles/app/js/navigation.client.3301e9ff.js:2)
+  ./core/navigation/api/helpers.js (https://www.chess.com/bundles/app/js/navigation.client.3301e9ff.js:2)
+  __webpack_require__ (https://www.chess.com/bundles/app/js/navigation.client.3301e9ff.js:2)
+  ./core/navigation/index.js (https://www.chess.com/bundles/app/js/navigation.client.3301e9ff.js:2)
+  __webpack_require__ (https://www.chess.com/bundles/app/js/navigation.client.3301e9ff.js:2)
+  (anonymous function) (https://www.chess.com/bundles/app/js/navigation.client.3301e9ff.js:2)
+  __webpack_require__ (https://www.chess.com/bundles/app/js/navigation.client.3301e9ff.js:2)
+  (anonymous function) (https://www.chess.com/bundles/app/js/navigation.client.3301e9ff.js:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2021-02-15T18:20:02.720Z] Session [6b43d5a0-6fba-11eb-89a9-0d6be8dbcdbe] - page.onError - msg: TypeError: undefined is not a function (evaluating 'Object.values(n.BodyClass)')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2021-02-15T18:20:02.720Z] Session [6b43d5a0-6fba-11eb-89a9-0d6be8dbcdbe] - page.onError - stack:
+  ./core/board-layout/index.ts (https://betacssjs.chesscomfiles.com/bundles/app/js/board-layout.client.53b69357.js:1)
+  __webpack_require__ (https://betacssjs.chesscomfiles.com/bundles/app/js/board-layout.client.53b69357.js:1)
+  (anonymous function) (https://betacssjs.chesscomfiles.com/bundles/app/js/board-layout.client.53b69357.js:1)
+  __webpack_require__ (https://betacssjs.chesscomfiles.com/bundles/app/js/board-layout.client.53b69357.js:1)
+  (anonymous function) (https://betacssjs.chesscomfiles.com/bundles/app/js/board-layout.client.53b69357.js:1)
+
+  phantomjs://platform/console++.js:263 in error

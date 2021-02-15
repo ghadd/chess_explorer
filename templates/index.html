@@ -3,8 +3,16 @@
 
 {% block content %}
 
-<h1>
-    Hello world
-</h1>
+<div class="board">
+{% for cell in range(64) %}
+    <div class="cell" style="background-color: {{ "#262626" if (cell % 8 + cell // 8) % 2 != 0 else "white" }};">
+        {% if cell in pieces_map %}
+            {% set image_fname = "images/{piece_id}.png".format(piece_id=pieces_map[cell]) %}
+            <img src="{{ url_for('static', filename=image_fname) }}" alt="{{ cell }}">
+        {% endif %}
+        
+    </div>
+{% endfor %}
+</div>
     
 {% endblock content %}
