@@ -71,7 +71,7 @@ def get_pieces_map(url):
 
     print(pieces[0].position)
     print(pieces[0])
-    pieces_map = {(piece.position[0] - 1) * 8 +
-                  piece.position[1] - 1: piece.piece_id for piece in pieces}
+    pieces_map = {63 - (piece.position[0]) * 8 +
+                  piece.position[1]: piece.piece_id for piece in pieces}
 
     return pieces_map

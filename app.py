@@ -37,7 +37,7 @@ def index():
         pieces_map = get_pieces_map(url)
 
     rendered_html = render_template(
-        'index.html', pieces_map=pieces_map)
+        'index.html', pieces_map=pieces_map, url=url)
     puzzle = Puzzle(pid=pid,
                     link=url, puzzle=pieces_map)
     try:

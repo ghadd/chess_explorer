@@ -5,7 +5,7 @@
 
 <div class="board">
     {% for cell in range(64) %}
-    <div class="cell" style="background-color: {{ " #262626" if (cell % 8 + cell // 8) % 2 !=0 else "white" }};">
+    <div class="cell" style="background-color: {{ " #008000" if (cell % 8 + cell // 8) % 2 !=0 else "white" }};">
         {% if cell in pieces_map %}
         {% set image_fname = "images/{piece_id}.png".format(piece_id=pieces_map[cell]) %}
         <img src="{{ url_for('static', filename=image_fname) }}" alt="{{ cell }}">
@@ -20,6 +20,11 @@
     <input type="submit">
 </form>
 
-<a href="https://www.chesscoachonline.com/chess-articles/chess-rules">Rules</a>
+<div>
+    <a href="https://www.chesscoachonline.com/chess-articles/chess-rules">Rules</a>
+</div>
+<div>
+    <a href="{{ url }}">Solve it on chess.com</a>
+</div>
 
 {% endblock content %}
