@@ -3,28 +3,85 @@
 
 {% block content %}
 
-<div class="board">
-    {% for cell in range(64) %}
-    <div class="cell" style="background-color: {{ " #008000" if (cell % 8 + cell // 8) % 2 !=0 else "white" }};">
-        {% if cell in pieces_map %}
-        {% set image_fname = "images/{piece_id}.png".format(piece_id=pieces_map[cell]) %}
-        <img src="{{ url_for('static', filename=image_fname) }}" alt="{{ cell }}">
-        {% endif %}
+<div class="main">
+    <div class="left">
+        <div class="board">
+            {% for cell in range(64) %}
+            <div class="cell" style="background-color: {{ " #008000" if (cell % 8 + cell // 8) % 2 !=0 else "white"
+                }};">
+                {% if cell in pieces_map %}
+                {% set image_fname = "images/{piece_id}.png".format(piece_id=pieces_map[cell]) %}
+                <img src="{{ url_for('static', filename=image_fname) }}" alt="{{ cell }}">
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
     </div>
-    {% endfor %}
+
+    <div class="right">
+        <form name="user-info" method="post" , action="/login">
+            <section class="main-params">
+                <input id="login" name="login" type="text" placeholder="Login"
+                    pattern="^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"
+                    oninvalid="this.setCustomValidity('Login should contain only alphanumeric characters, \_ and \.')"
+                    oninput="setCustomValidity('')" required>
+                <input id="password" name="password" type="password" placeholder="Password"
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                    oninvalid="this.setCustomValidity('Password should be at least 8 characters, contain 1 number and 1 uppercase letter')"
+                    oninput="setCustomValidity('')" required>
+            </section>
+
+            <br />
+
+            <section class="additional-params">
+                <label for="exp">Have you ever played chess?
+                    <input type="radio" name="exp" checked="true" id="yes">
+                    <label for="yes">Yes</label>
+                    <input type="radio" name="exp" id="no">
+                    <label for="no">No</label>
+                </label>
+
+                <br />
+
+                <label for="country">Where are you from?
+                    <input list="countries" name="country" id="country">
+                    <datalist id="countries">
+                        {% for country in countries %}
+                        <option value="{{ country }}">{{ country }}</option>
+                        {% endfor %}
+                    </datalist>
+                </label>
+
+            </section>
+
+            <br />
+
+            <section class="feedback">
+                <textarea name="feedback" id="feedback" cols="30" rows="10" minlength="10" maxlength="300"
+                    placeholder="Really liked the puzzle!"></textarea>
+            </section>
+            <input type="submit">
+        </form>
+
+        <div class="links">
+            <div>
+                <a href="https://www.chesscoachonline.com/chess-articles/chess-rules">Rules</a>
+            </div>
+            <div>
+                <a href="{{ url }}">Solve it on chess.com</a>
+            </div>
+        </div>
+    </div>
 </div>
 
-<form name="user-info" method="post" , action="/login">
-    <input id="login" name="login" type="text" placeholder="Login">
-    <input id="password" name="password" type="password" placeholder="Password">
-    <input type="submit">
-</form>
-
-<div>
-    <a href="https://www.chesscoachonline.com/chess-articles/chess-rules">Rules</a>
-</div>
-<div>
-    <a href="{{ url }}">Solve it on chess.com</a>
+<div class="eegg">
+    <button id="dontclick">Do not click this button</button>
 </div>
 
 {% endblock content %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
+
+{% endblock scripts %}

@@ -26,7 +26,7 @@ def index():
     if len(argv) > 1:
         url = argv[1]
     else:
-        url = str(input("Enter puzzle link: "))
+        return "No initial link was provided"
 
     pid = int(url[url.rindex('/')+1:])
     res = Puzzle.query.filter_by(pid=pid).first()
@@ -36,8 +36,11 @@ def index():
     else:
         pieces_map = get_pieces_map(url)
 
+    countries_loc = "static/assets/countries.txt"
+    countries = open(countries_loc).read().split("\n")
+
     rendered_html = render_template(
-        'index.html', pieces_map=pieces_map, url=url)
+        'index.html', pieces_map=pieces_map, url=url, countries=countries)
     puzzle = Puzzle(pid=pid,
                     link=url, puzzle=pieces_map)
     try:
