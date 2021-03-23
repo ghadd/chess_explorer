@@ -1,9 +1,11 @@
+import json
+
 from hashlib import sha256
 from sys import argv
 from flask import Flask, render_template, request, redirect, flash
 from flask.helpers import url_for
 from src.database import *
-from src.board_parser import get_pieces_map
+from src.board_parser import get_pieces_map, get_stats
 from sqlalchemy.exc import IntegrityError
 
 from os import getenv
@@ -40,7 +42,7 @@ def index():
     countries = open(countries_loc).read().split("\n")
 
     rendered_html = render_template(
-        'index.html', pieces_map=pieces_map, url=url, countries=countries)
+        'index.html', pieces_map=pieces_map, url=url, countries=countries, json_stats=json.dumps(get_stats(pieces_map)))
     puzzle = Puzzle(pid=pid,
                     link=url, puzzle=pieces_map)
     try:
@@ -60,7 +62,6 @@ def login():
     user = User(login=request.form['login'], password=sha256(
         request.form['password'].encode()).hexdigest())
 
-    # xD
     try:
         db.session.add(user)
         db.session.commit()

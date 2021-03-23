@@ -1,3 +1,4 @@
+from typing import List
 from selenium import webdriver
 import re
 
@@ -66,7 +67,19 @@ def get_pieces(url):
     return pieces
 
 
-def get_pieces_map(url):
+def get_stats(pieces_map):
+    stats = {}
+
+    for piece_id in pieces_map.values():
+        try:
+            stats[piece_id[1]] += 1
+        except KeyError:
+            stats[piece_id[1]] = 1
+
+    return stats
+
+
+def get_pieces_map(url, ret_raw=False):
     pieces = get_pieces(url)
 
     print(pieces[0].position)

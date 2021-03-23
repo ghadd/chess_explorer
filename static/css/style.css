@@ -28,3 +28,18 @@ body {
   right: 0;
   top: 0;
 }
+
+canvas {
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.data {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-size: 72px;
+  font-weight: 900;
+}
