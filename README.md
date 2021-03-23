@@ -1,1 +1,1 @@
-# Lab 1 of Internet Programming course.
+# Lab 1&2 of Internet Programming course

@@ -21,10 +21,13 @@
     <div class="right">
         <form name="user-info" method="post" , action="/login">
             <section class="main-params">
+                <label for="login">Think of a login: </label>
                 <input id="login" name="login" type="text" placeholder="Login"
                     pattern="^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"
                     oninvalid="this.setCustomValidity('Login should contain only alphanumeric characters, \_ and \.')"
                     oninput="setCustomValidity('')" required>
+                <br/>
+                <label for="password">Think of a password: </label>
                 <input id="password" name="password" type="password" placeholder="Password"
                     pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
                     oninvalid="this.setCustomValidity('Password should be at least 8 characters, contain 1 number and 1 uppercase letter')"
@@ -51,7 +54,7 @@
                         {% endfor %}
                     </datalist>
                 </label>
-
+                
             </section>
 
             <br />
